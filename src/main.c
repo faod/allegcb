@@ -113,6 +113,7 @@ static void uninstall_alleg(uint32_t status) {
 	if (status & L_INPUT_J ) al_uninstall_joystick();
 	if (status & L_EV_QUEUE) al_destroy_event_queue(event_queue);
 	if (status & L_BITMAP_F) al_shutdown_image_addon();
+	if (status & L_PRIM_ADD) al_shutdown_primitives_addon();
 	if (status & L_AUDIO_BG) al_uninstall_audio();
 	if (status & L_TIMER_EV) al_destroy_timer(timer);
 }
