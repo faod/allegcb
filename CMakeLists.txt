@@ -26,7 +26,7 @@ link_directories("${ALLEGRO_HOME}/lib")
 #    Env
 #-----------#
 
-include("${PROJECT_SOURCE_DIR}/cmake/misc.cmake")
+include("${PROJECT_SOURCE_DIR}/cmake/alleg.cmake")
 make_libs_filenames(deps ${ALLEG_VERSION})
 append_deps(deps "${deps}")
 
