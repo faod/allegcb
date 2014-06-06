@@ -35,9 +35,13 @@ append_deps(deps "${deps}")
 #-----------#
 
 file(GLOB sources "${PROJECT_SOURCE_DIR}/src/*.c")
-add_executable(map_viewer ${sources})
-set_target_properties(map_viewer PROPERTIES RUNTIME_OUTPUT_DIRECTORY "build")
+add_executable(${PROJECT_NAME} ${sources})
+set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "build")
 if(ALLEGRO_STATICLINK)
-	set_target_properties(map_viewer PROPERTIES COMPILE_DEFINITIONS "ALLEGRO_STATICLINK")
+	set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS "ALLEGRO_STATICLINK")
 endif(ALLEGRO_STATICLINK)
-target_link_libraries(map_viewer ${deps})
+target_link_libraries(${PROJECT_NAME} ${deps})
+
+if(UNIX)
+	target_link_libraries(${PROJECT_NAME} m)
+endif(UNIX)
